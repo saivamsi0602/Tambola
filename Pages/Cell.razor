@@ -1,0 +1,13 @@
+﻿<div class="cell" style="background-color:@(number.HasValue?"greenyellow":"white")">
+    @if (number.HasValue)
+    {
+        <span>@number</span>
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public int? number { get; set; }
+
+}

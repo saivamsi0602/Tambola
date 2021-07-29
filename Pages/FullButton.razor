@@ -1,0 +1,19 @@
+﻿<div class="@Class @(isSelected ? "is-selected":"") ">
+    <button @onclick="buttonClicked">@ChildContent</button>
+</div>
+@code {
+    [Parameter]
+    public RenderFragment ChildContent{ get; set; }
+
+    [Parameter]
+    public string Class { get; set; } = "";
+
+    [Parameter]
+    public EventCallback buttonPressed{ get; set; }
+    [Parameter]
+    public bool isSelected { get; set; } = false;
+    private async Task buttonClicked()
+    {
+        await buttonPressed.InvokeAsync();
+    }
+}

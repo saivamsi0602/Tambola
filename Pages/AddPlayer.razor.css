@@ -1,0 +1,53 @@
+﻿.addPlayer{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    z-index:-1;
+    overflow:hidden;
+}
+.showPanel{
+    z-index:1;
+}
+.addPlayerNavColor{
+    background:#f8f7f7;
+}
+.emptyLeft{
+    height:100%;
+    width:60%;
+    background:white;
+    opacity:0.3;
+}
+.content{
+    padding-left:20px;
+    padding-right:20px;
+}
+.ticketGenerator{
+    height:100%;
+    width:40%;
+    background:#f8f7f7;
+    border-left:1px solid black;
+}
+.add-player-btn-fullsize{
+    color:black;
+    height:100%;
+    border-radius:0;
+    box-shadow:none;
+    padding: 0 20px;
+}
+.add-player-btn-fullsize:hover{
+    background:hsl(0 100% 50%);
+    color:white;
+}
+.form-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.form-buttons > button{
+    width:150px;
+}
+.saveTicketsButton{
+    display:block;
+    width:100%;
+    background-color:forestgreen;
+}

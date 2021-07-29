@@ -1,0 +1,52 @@
+﻿@using Tambola.Models
+@using Tambola.Services
+@page "/"
+
+<Modal yesPressed="clear" noPressed="closeModal" visibility=isModalVisible>
+    Are you sure, you want to clear all the data?
+</Modal>
+
+<AddPlayer showTickets="showTickets" showTicketsPanel="closeButtonInChildClicked" savePressed="(Tuple<string,PlayerTicket> tuple) => PlayerTickets.statechanged(tuple)">
+</AddPlayer>
+<div class="navBar ">
+    <span style="margin-left:30px;font-size:large;"><b>Tambola</b></span>
+    <div style="margin-right:30px;">
+        <button class="button button-primary" @onclick="btnClicked">Add player</button>
+    </div>
+</div>
+
+<div class="body">
+    <BodyTemplate>
+        <sideBody>
+            <FullButton isSelected=isPlayersSelected buttonPressed="playersSelected">
+                All Players
+            </FullButton>
+            <FullButton isSelected=isWinnersSelected buttonPressed="winnersSelected">
+                Winners
+            </FullButton>
+            <FullButton isSelected=isNumbersSelected buttonPressed="numbersSelected">
+                Number Picker
+            </FullButton>
+            <FullButton Class="clear-data" buttonPressed="showModal">Clear data</FullButton>
+        </sideBody>
+        <mainBody>
+            @if (isPlayersSelected)
+            {
+            <PlayerTickets @ref="PlayerTickets"></PlayerTickets>
+            }
+            else if(isWinnersSelected)
+            {
+                <Winners @ref=winners></Winners>
+            }
+            else if (isNumbersSelected)
+            {
+                <NumberPicker></NumberPicker>
+            }
+            else
+            {
+            <h1>Welcome to Tambola</h1>
+            }
+
+        </mainBody>
+    </BodyTemplate>
+</div>

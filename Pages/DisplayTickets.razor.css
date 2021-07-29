@@ -1,0 +1,28 @@
+﻿body {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+.ticket{
+	display:grid;
+	grid-template-columns: repeat(9,45px);
+	margin:auto;
+	width:fit-content;
+}
+.overflow-scroll{
+	overflow:scroll;
+	height:250px;
+}
+.full-height{
+	height:calc(100vh - 60px);
+}
+.navBar-displayTickets{
+	border-top:1px solid black;
+}
+td{
+	height:45px;
+	width:45px;
+	border:1px solid black;
+	box-sizing:border-box;
+	text-align:center;
+}

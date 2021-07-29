@@ -1,0 +1,56 @@
+﻿<div class="overflow-scroll @(isFullHeight?"full-height":"")">
+    @if (isFullHeight)
+    {
+        @if (isRealPlayer)
+        {
+            <div class="navBar navBar-displayTickets">
+                <div style="height:100%;display:flex;">
+                    <FullButton Class="navBar-button" buttonPressed="markWinner">Mark player as winner</FullButton>
+                    <FullButton Class="navBar-button" buttonPressed="@(()=>copyTickets("tickets"))">Copy tickets</FullButton>
+                    @if (NumberOfTickets < 6)
+                    {
+                        <FullButton Class="navBar-button" buttonPressed="AddTicket">Add ticket</FullButton>
+                    }
+                    @if (NumberOfTickets > 1)
+                    {
+                        <FullButton Class="navBar-button" buttonPressed="DeleteTicket">Delete ticket</FullButton>
+                    }
+                </div>
+                <FullButton Class="navBar-button clear-data" buttonPressed="deletePlayer">Delete player</FullButton>
+            </div>
+        }
+        @if (showWinButtons)
+        {
+            <div class="position-absolute" style="width:250px;background:#dfdfdf">
+                @foreach (string s in availableWinningWays.list)
+                {
+                    <FullButton buttonPressed="@(()=>winButtonPressed(s))">@s</FullButton>
+                }
+            </div>
+        }
+    }
+    <h3 style="text-align:center">Tickets</h3>
+    @if (ticketManager != null)
+    {
+    <div id="tickets">
+        @for (int i = 0; i < NumberOfTickets; i++)
+        {
+        <h5 class="textAlignCenter">Ticket #@(i+1)</h5>
+        <table cellspacing="0" cellpadding="0" class="margin-auto" >
+            <tbody>
+                @for (int j = 0; j < 3; j++)
+                {
+                    <tr>
+                        @for (int k = 0; k < 9; k++)
+                        {
+                            @:@{int? temp = ticketManager.Tickets[i].TicketArray[j, k]; }
+                            <td style="background:@(temp.HasValue?"greenyellow":"white")">@(temp.HasValue?temp:"")</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </div>
+    }
+</div>

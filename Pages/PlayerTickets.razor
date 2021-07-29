@@ -1,0 +1,17 @@
+﻿<BodyTemplate @ref=_bodyTemplate Class="overflow-scroll">
+    <sideBody>
+        @foreach (var name in _players)
+        {
+        <FullButton buttonPressed="@(()=>playerSelected(name))" isSelected=@(selectedPlayer.Equals(name))>@name</FullButton>
+        }
+    </sideBody>
+    <mainBody>
+        <DisplayTickets @ref="displayTickets"
+                        NumberOfTickets=playerTickets[selectedPlayer].numberOftickets
+                        isFullHeight=true
+                        removePlayer="deletePlayer"
+                        markPlayerAsWinner="@markPlayerWinner"
+                        isRealPlayer="@(!selectedPlayer.Equals(""))">
+        </DisplayTickets>
+    </mainBody>
+</BodyTemplate>
