@@ -35,5 +35,9 @@ namespace Tambola.Services
             await localStorageService.RemoveItemAsync("PickedNumbers");
             await setPickedNumbers();
         }
+        public bool checkNumberPicked(int num)
+        {
+            return (pickedNumbers.PickedNumbersList[num / 30] & (1 << num % 30)) != 0;
+        }
     }
 }

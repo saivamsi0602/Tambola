@@ -24,6 +24,8 @@ namespace Tambola.Pages
         [Inject]
         private ILocalStorageService localStorage { get; set; }
         [Inject]
+        private NumberPickerManager numberPickerManager { get; set; }
+        [Inject]
         private AvailableWinningWays availableWinningWays { get; set; }
 
         [Inject]

@@ -44,7 +44,7 @@
                         @for (int k = 0; k < 9; k++)
                         {
                             @:@{int? temp = ticketManager.Tickets[i].TicketArray[j, k]; }
-                            <td style="background:@(temp.HasValue?"greenyellow":"white")">@(temp.HasValue?temp:"")</td>
+                            <td style="background:@(temp.HasValue?numberPickerManager.checkNumberPicked((int)temp)?"orange":"greenyellow":"white")">@(temp.HasValue?temp:"")</td>
                         }
                     </tr>
                 }
