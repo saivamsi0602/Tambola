@@ -19,6 +19,11 @@ namespace Tambola.Pages
         public bool isFullHeight { get; set; } = false;
         [Parameter]
         public bool isRealPlayer { get; set; } = false;
+        [Parameter]
+        public EventCallback AddPlayerTickets {  get; set; }
+        [Parameter]
+        public EventCallback DeletePlayerTickets { get; set; }
+
         [Inject]
         private IJSRuntime jSRuntime { get; set; }
         [Inject]
@@ -77,10 +82,12 @@ namespace Tambola.Pages
         private void AddTicket()
         {
             NumberOfTickets++;
+            AddPlayerTickets.InvokeAsync();
         }
         private void DeleteTicket()
         {
             NumberOfTickets--;
+            DeletePlayerTickets.InvokeAsync();
         }
         private async Task copyTickets(string id)
         {

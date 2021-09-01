@@ -111,5 +111,15 @@ namespace Tambola.Pages
             }
 
         }
+        private void AddPlayerTicket()
+        {
+            playerTickets[selectedPlayer].numberOftickets++;
+            localStorage.SetItemAsync<PlayerTicket>(selectedPlayer, playerTickets[selectedPlayer]);
+        }
+        private void DeletePlayerTicket()
+        {
+            playerTickets[selectedPlayer].numberOftickets--;
+            localStorage.SetItemAsync<PlayerTicket>(selectedPlayer, playerTickets[selectedPlayer]);
+        }
     }
 }
